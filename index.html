@@ -1,0 +1,1062 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ThreeA LLC | Software Consulting Company</title>
+  <meta name="description" content="ThreeA LLC is a professional software development company offering custom web, mobile, cloud, and enterprise solutions." />
+
+  <!-- Online CSS/JS plugins -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+  <style>
+    :root {
+      --bg: #07111f;
+      --bg-soft: #0e1a2b;
+      --card: rgba(255,255,255,0.08);
+      --line: rgba(255,255,255,0.12);
+      --text: #eef4ff;
+      --muted: #9cb0cc;
+      --primary: #5eead4;
+      --accent: #7c3aed;
+      --warning: #f59e0b;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(124,58,237,0.22), transparent 25%),
+        radial-gradient(circle at top right, rgba(94,234,212,0.18), transparent 25%),
+        linear-gradient(180deg, #020817 0%, #07111f 40%, #081426 100%);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+    /* PARTICLES */
+
+    #particles-js{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    z-index:-1;
+    }
+
+    .glass {
+      background: rgba(255, 255, 255, 0.06);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255,255,255,0.09);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+    }
+
+    .gradient-text {
+      background: linear-gradient(90deg, #ffffff, #8bfff0, #b28cff);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .section-title {
+      font-size: clamp(1.9rem, 2.6vw, 3rem);
+      font-weight: 800;
+      line-height: 1.05;
+      letter-spacing: -0.04em;
+    }
+
+    .grid-pattern::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.06) 1px, transparent 1px);
+      background-size: 44px 44px;
+      mask-image: linear-gradient(to bottom, rgba(0,0,0,.55), transparent 90%);
+      pointer-events: none;
+    }
+
+    .hero-orb,
+    .hero-orb-2 {
+      position: absolute;
+      border-radius: 9999px;
+      filter: blur(60px);
+      opacity: 0.45;
+      pointer-events: none;
+      animation: floatOrb 8s ease-in-out infinite alternate;
+    }
+
+    .hero-orb {
+      width: 260px;
+      height: 260px;
+      background: rgba(124, 58, 237, 0.45);
+      top: 40px;
+      right: 8%;
+    }
+
+    .hero-orb-2 {
+      width: 220px;
+      height: 220px;
+      background: rgba(94, 234, 212, 0.28);
+      bottom: 30px;
+      left: 4%;
+      animation-duration: 10s;
+    }
+
+    @keyframes floatOrb {
+      from { transform: translateY(0px) translateX(0px) scale(1); }
+      to { transform: translateY(18px) translateX(-8px) scale(1.08); }
+    }
+
+    .nav-link {
+      position: relative;
+      transition: .25s ease;
+    }
+    .nav-link::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -8px;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--primary), #fff);
+      transition: width .25s ease;
+    }
+    .nav-link:hover::after,
+    .nav-link.active::after {
+      width: 100%;
+    }
+
+    .card-hover {
+      transition: transform .35s ease, border-color .35s ease, box-shadow .35s ease;
+    }
+    .card-hover:hover {
+      transform: translateY(-8px);
+      border-color: rgba(94,234,212,0.45);
+      box-shadow: 0 18px 40px rgba(0,0,0,0.3);
+    }
+
+    .feature-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 9999px;
+      background: linear-gradient(180deg, var(--primary), #fff);
+      box-shadow: 0 0 0 6px rgba(94,234,212,0.14);
+    }
+
+    .stat-card h3 {
+      font-size: clamp(2rem, 3vw, 3rem);
+      font-weight: 800;
+    }
+
+    .dashboard-widget {
+      background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.04));
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 1.25rem;
+    }
+
+    .progress-bar > span {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--primary), #7dd3fc, #c084fc);
+      box-shadow: 0 0 18px rgba(94,234,212,0.32);
+    }
+
+    .portfolio-card img {
+      transition: transform .45s ease;
+    }
+    .portfolio-card:hover img {
+      transform: scale(1.08);
+    }
+
+    .team-avatar {
+      width: 76px;
+      height: 76px;
+      border-radius: 1.25rem;
+      display: grid;
+      place-items: center;
+      font-weight: 800;
+      font-size: 1.15rem;
+      background: linear-gradient(135deg, rgba(124,58,237,0.6), rgba(94,234,212,0.45));
+      border: 1px solid rgba(255,255,255,0.12);
+    }
+
+    .modal {
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .25s ease;
+    }
+    .modal.show {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .ticker {
+      overflow: hidden;
+      white-space: nowrap;
+      mask-image: linear-gradient(90deg, transparent, black 10%, black 90%, transparent);
+    }
+    .ticker-track {
+      display: inline-flex;
+      gap: 3rem;
+      min-width: 200%;
+      animation: ticker 20s linear infinite;
+    }
+    .logo-img{
+      height:48px;
+      width:auto;
+      object-fit:contain;
+      display:block;
+      transform:scale(1);
+    }
+    @keyframes ticker {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    .mobile-nav { display: none; }
+    @media (max-width: 1024px) {
+      .desktop-nav { display: none; }
+      .mobile-nav { display: block; }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+    }
+  </style>
+</head>
+<body>
+  <div id="particles-js"></div>
+  <!-- Header -->
+  <header class="fixed top-0 inset-x-0 z-50">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-4">
+      <div class="glass rounded-2xl px-5 py-4 flex items-center justify-between">
+        <a href="#home" class="flex items-center gap-3">
+         <img src="logo.png" class="logo-img">
+          <div>
+            <p class="font-extrabold tracking-tight text-lg">ThreeA LLC</p>
+            <p class="text-xs text-slate-300">Software Consulting Company</p>
+          </div>
+        </a>
+
+        <nav class="desktop-nav flex items-center gap-7 text-sm text-slate-200">
+          <a class="nav-link" href="#dashboard">Dashboard</a>
+          <a class="nav-link" href="#services">Services</a>
+          <a class="nav-link" href="#about">About</a>
+          <a class="nav-link" href="#portfolio">Portfolio</a>
+          <a class="nav-link" href="#team">Team</a>
+          <a class="nav-link" href="#contact">Contact</a>
+        </nav>
+
+        <div class="desktop-nav flex items-center gap-3">
+          <button onclick="openModal('loginModal')" class="px-4 py-2 rounded-xl border border-white/10 text-white hover:bg-white/10 transition">Login</button>
+          <button onclick="openModal('signupModal')" class="px-4 py-2 rounded-xl bg-gradient-to-r from-teal-300 to-violet-400 text-slate-950 font-semibold shadow-lg hover:scale-[1.02] transition">Sign Up</button>
+        </div>
+
+        <button id="menuBtn" class="mobile-nav text-2xl text-white">
+          <i class="bi bi-list"></i>
+        </button>
+      </div>
+
+      <div id="mobileMenu" class="mobile-nav hidden mt-3 glass rounded-2xl p-4">
+        <div class="grid gap-3 text-slate-200 text-sm">
+          <a href="#dashboard">Dashboard</a>
+          <a href="#services">Services</a>
+          <a href="#about">About</a>
+          <a href="#portfolio">Portfolio</a>
+          <a href="#team">Team</a>
+          <a href="#contact">Contact</a>
+          <button onclick="openModal('loginModal')" class="mt-2 px-4 py-2 rounded-xl border border-white/10">Login</button>
+          <button onclick="openModal('signupModal')" class="px-4 py-2 rounded-xl bg-gradient-to-r from-teal-300 to-violet-400 text-slate-950 font-semibold">Sign Up</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section id="home" class="relative min-h-screen pt-36 pb-16 overflow-hidden grid-pattern">
+    <div class="hero-orb"></div>
+    <div class="hero-orb-2"></div>
+
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="grid lg:grid-cols-2 gap-10 items-center">
+        <div class="space-y-8">
+
+<div class="inline-flex items-center gap-2 text-sm glass px-4 py-2 rounded-full">
+<i class="bi bi-lightning-charge"></i>
+Smart software solutions for growing businesses
+</div>
+
+<h1 class="text-5xl lg:text-6xl font-black leading-tight">
+Build powerful software with <span class="text-cyan-400">ThreeA LLC</span>
+</h1>
+
+<p class="text-gray-300 text-lg">
+We create premium business websites, enterprise dashboards, SaaS platforms, and custom web applications designed to help modern companies scale faster.
+</p>
+
+<!-- NEW FEATURE GRID (FILLS BLANK AREA) -->
+<div class="grid sm:grid-cols-2 gap-4">
+
+<div class="glass p-4 rounded-xl flex gap-3 items-start">
+<div class="feature-icon"><i class="bi bi-code-slash"></i></div>
+<div>
+<h4 class="font-semibold">Modern Development</h4>
+<p class="text-sm text-gray-400">Clean scalable architecture</p>
+</div>
+</div>
+
+<div class="glass p-4 rounded-xl flex gap-3 items-start">
+<div class="feature-icon"><i class="bi bi-phone"></i></div>
+<div>
+<h4 class="font-semibold">Mobile Ready</h4>
+<p class="text-sm text-gray-400">Responsive on all devices</p>
+</div>
+</div>
+
+<div class="glass p-4 rounded-xl flex gap-3 items-start">
+<div class="feature-icon"><i class="bi bi-speedometer2"></i></div>
+<div>
+<h4 class="font-semibold">Fast Performance</h4>
+<p class="text-sm text-gray-400">Optimized loading speed</p>
+</div>
+</div>
+
+<div class="glass p-4 rounded-xl flex gap-3 items-start">
+<div class="feature-icon"><i class="bi bi-shield-check"></i></div>
+<div>
+<h4 class="font-semibold">Secure Systems</h4>
+<p class="text-sm text-gray-400">Enterprise security standards</p>
+</div>
+</div>
+
+</div>
+
+<div class="flex flex-wrap gap-4">
+<button class="bg-cyan-400 text-black px-6 py-3 rounded-xl font-semibold">Start Project</button>
+<button class="border border-white/20 px-6 py-3 rounded-xl">View Portfolio</button>
+</div>
+
+<!-- STATS -->
+<div class="grid grid-cols-3 gap-4 pt-4">
+
+<div class="glass p-6 rounded-xl text-center">
+<div class="stat-number">120</div>
+<div class="text-gray-400 text-sm">Projects Delivered</div>
+</div>
+
+<div class="glass p-6 rounded-xl text-center">
+<div class="stat-number">40</div>
+<div class="text-gray-400 text-sm">Business Clients</div>
+</div>
+
+<div class="glass p-6 rounded-xl text-center">
+<div class="stat-number">99%</div>
+<div class="text-gray-400 text-sm">Client Satisfaction</div>
+</div>
+
+</div>
+
+</div>
+
+<!-- RIGHT DASHBOARD -->
+<div class="glass p-6 rounded-3xl shadow-2xl">
+
+<div class="flex justify-between items-center mb-6">
+<div class="flex items-center gap-3">
+<div class="flex gap-2">
+<span class="w-3 h-3 bg-red-400 rounded-full"></span>
+<span class="w-3 h-3 bg-yellow-400 rounded-full"></span>
+<span class="w-3 h-3 bg-green-400 rounded-full"></span>
+</div>
+<p class="text-sm text-gray-300">ThreeA Business Performance Dashboard</p>
+</div>
+
+<span class="text-xs bg-green-500/20 text-green-400 px-3 py-1 rounded-full">Live System</span>
+</div>
+
+<div class="grid md:grid-cols-2 gap-4">
+
+<div class="dashboard-card">
+<p class="text-sm text-gray-400">Monthly Revenue</p>
+<h3 class="text-2xl font-bold">$128,400</h3>
+<div class="flex items-end gap-2 mt-6 h-20">
+<div class="bg-cyan-500/40 w-full h-6 rounded"></div>
+<div class="bg-cyan-500/50 w-full h-10 rounded"></div>
+<div class="bg-cyan-500/60 w-full h-14 rounded"></div>
+<div class="bg-cyan-500/70 w-full h-16 rounded"></div>
+<div class="bg-cyan-500/90 w-full h-20 rounded"></div>
+</div>
+</div>
+
+<div class="dashboard-card">
+<p class="text-sm text-gray-400">Project Delivery</p>
+<h3 class="text-2xl font-bold">94.7%</h3>
+
+<div class="mt-6 space-y-3 text-sm">
+
+<div>
+<div class="flex justify-between mb-1"><span>Frontend Systems</span><span>96%</span></div>
+<div class="progress"><span style="width:96%"></span></div>
+</div>
+
+<div>
+<div class="flex justify-between mb-1"><span>Backend APIs</span><span>91%</span></div>
+<div class="progress"><span style="width:91%"></span></div>
+</div>
+
+<div>
+<div class="flex justify-between mb-1"><span>Cloud Deployment</span><span>97%</span></div>
+<div class="progress"><span style="width:97%"></span></div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- FIXED RESPONSIVE STATS -->
+<div class="grid grid-cols-2 md:grid-cols-4 gap-3 mt-4">
+
+<div class="dashboard-card text-center">
+<p class="text-gray-400 text-sm">Active Clients</p>
+<h4 class="text-xl font-bold">28</h4>
+</div>
+
+<div class="dashboard-card text-center">
+<p class="text-gray-400 text-sm">Tickets Resolved</p>
+<h4 class="text-xl font-bold">1,284</h4>
+</div>
+
+<div class="dashboard-card text-center">
+<p class="text-gray-400 text-sm">System Uptime</p>
+<h4 class="text-xl font-bold">99.98%</h4>
+</div>
+
+<div class="dashboard-card text-center">
+<p class="text-gray-400 text-sm">Avg Response</p>
+<h4 class="text-xl font-bold">11 min</h4>
+</div>
+
+</div>
+
+</div>
+      </div>
+
+      <div class="mt-14 glass rounded-2xl p-4 ticker" data-aos="fade-up">
+        <div class="ticker-track text-slate-300 text-sm font-medium">
+          <span>Custom Web Applications</span>
+          <span>Enterprise Software</span>
+          <span>UI/UX Strategy</span>
+          <span>Cloud Architecture</span>
+          <span>API Integration</span>
+          <span>SaaS Platforms</span>
+          <span>Analytics Dashboards</span>
+          <span>Maintenance & Support</span>
+          <span>Custom Web Applications</span>
+          <span>Enterprise Software</span>
+          <span>UI/UX Strategy</span>
+          <span>Cloud Architecture</span>
+          <span>API Integration</span>
+          <span>SaaS Platforms</span>
+          <span>Analytics Dashboards</span>
+          <span>Maintenance & Support</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Dashboard Section -->
+  <section id="dashboard" class="py-20">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-12">
+        <div>
+          <p class="text-teal-300 font-semibold tracking-[0.2em] uppercase text-xs">Dashboard Preview</p>
+          <h2 class="section-title mt-3">A smarter business dashboard experience</h2>
+        </div>
+        <p class="max-w-2xl text-slate-300 leading-8">Showcase your company as modern and trustworthy with a polished dashboard interface that highlights performance, KPIs, projects, and client activity in a realistic business environment.</p>
+      </div>
+
+      <div class="grid xl:grid-cols-3 gap-6">
+        <div class="xl:col-span-2 glass rounded-[2rem] p-6 card-hover" data-aos="fade-up">
+          <div class="flex flex-wrap items-center justify-between gap-4 mb-6">
+            <div>
+              <h3 class="text-2xl font-bold">Executive Overview</h3>
+              <p class="text-slate-400">Business metrics and delivery performance</p>
+            </div>
+            <div class="flex items-center gap-2 text-xs text-slate-300">
+              <span class="px-3 py-1 rounded-full bg-emerald-400/10 text-emerald-300 border border-emerald-400/20">Updated 2 min ago</span>
+              <span class="px-3 py-1 rounded-full bg-white/5 border border-white/10">Q1 2026</span>
+            </div>
+          </div>
+          <div class="grid md:grid-cols-3 gap-4">
+            <div class="rounded-2xl bg-white/5 p-5 border border-white/10">
+              <p class="text-slate-400 text-sm">New Leads</p>
+              <h4 class="text-3xl font-extrabold mt-2">214</h4>
+              <p class="text-emerald-300 text-sm mt-2"><i class="bi bi-arrow-up-right"></i> 18.4% increase</p>
+            </div>
+            <div class="rounded-2xl bg-white/5 p-5 border border-white/10">
+              <p class="text-slate-400 text-sm">Open Projects</p>
+              <h4 class="text-3xl font-extrabold mt-2">37</h4>
+              <p class="text-cyan-300 text-sm mt-2"><i class="bi bi-check2-circle"></i> 12 shipping this month</p>
+            </div>
+            <div class="rounded-2xl bg-white/5 p-5 border border-white/10">
+              <p class="text-slate-400 text-sm">Customer Retention</p>
+              <h4 class="text-3xl font-extrabold mt-2">92%</h4>
+              <p class="text-violet-300 text-sm mt-2"><i class="bi bi-stars"></i> Strong enterprise loyalty</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="glass rounded-[2rem] p-6 card-hover" data-aos="fade-up" data-aos-delay="100">
+          <h3 class="text-xl font-bold">Pipeline Status</h3>
+          <div class="mt-6 space-y-5 text-sm">
+            <div>
+              <div class="flex justify-between mb-2"><span class="text-slate-300">Discovery</span><span>76%</span></div>
+              <div class="h-2 rounded-full bg-white/10 progress-bar"><span style="width:76%"></span></div>
+            </div>
+            <div>
+              <div class="flex justify-between mb-2"><span class="text-slate-300">Design</span><span>89%</span></div>
+              <div class="h-2 rounded-full bg-white/10 progress-bar"><span style="width:89%"></span></div>
+            </div>
+            <div>
+              <div class="flex justify-between mb-2"><span class="text-slate-300">Development</span><span>94%</span></div>
+              <div class="h-2 rounded-full bg-white/10 progress-bar"><span style="width:94%"></span></div>
+            </div>
+            <div>
+              <div class="flex justify-between mb-2"><span class="text-slate-300">Deployment</span><span>81%</span></div>
+              <div class="h-2 rounded-full bg-white/10 progress-bar"><span style="width:81%"></span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section id="services" class="py-20 bg-white/[0.02]">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-14">
+        <p class="text-teal-300 font-semibold tracking-[0.2em] uppercase text-xs">Services</p>
+        <h2 class="section-title mt-3">Professional software services built for serious growth</h2>
+        <p class="mt-5 text-slate-300 leading-8">ThreeA LLC helps companies launch better digital experiences with robust engineering, refined UI, and scalable technology strategy.</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-6">
+        <div class="glass rounded-[1.75rem] p-6 card-hover" data-aos="fade-up">
+          <div class="w-14 h-14 rounded-2xl bg-cyan-300/10 text-cyan-300 grid place-items-center text-2xl mb-5"><i class="bi bi-window-stack"></i></div>
+          <h3 class="text-xl font-bold">Custom Web Development</h3>
+          <p class="mt-3 text-slate-300 leading-7">Responsive, premium-grade websites and web applications tailored for performance, conversion, and credibility.</p>
+        </div>
+
+        <div class="glass rounded-[1.75rem] p-6 card-hover" data-aos="fade-up" data-aos-delay="100">
+          <div class="w-14 h-14 rounded-2xl bg-violet-300/10 text-violet-300 grid place-items-center text-2xl mb-5"><i class="bi bi-phone"></i></div>
+          <h3 class="text-xl font-bold">Mobile App Solutions</h3>
+          <p class="mt-3 text-slate-300 leading-7">Clean, user-focused mobile products for startups, internal operations, and customer-facing digital services.</p>
+        </div>
+
+        <div class="glass rounded-[1.75rem] p-6 card-hover" data-aos="fade-up" data-aos-delay="200">
+          <div class="w-14 h-14 rounded-2xl bg-emerald-300/10 text-emerald-300 grid place-items-center text-2xl mb-5"><i class="bi bi-cloud-arrow-up"></i></div>
+          <h3 class="text-xl font-bold">Cloud & DevOps</h3>
+          <p class="mt-3 text-slate-300 leading-7">Reliable deployment pipelines, hosting optimization, cloud migrations, and high-availability infrastructure.</p>
+        </div>
+
+        <div class="glass rounded-[1.75rem] p-6 card-hover" data-aos="fade-up">
+          <div class="w-14 h-14 rounded-2xl bg-amber-300/10 text-amber-300 grid place-items-center text-2xl mb-5"><i class="bi bi-pie-chart"></i></div>
+          <h3 class="text-xl font-bold">Analytics Dashboards</h3>
+          <p class="mt-3 text-slate-300 leading-7">Smart business dashboards with real-time metrics, KPIs, reports, and decision-ready visibility.</p>
+        </div>
+
+        <div class="glass rounded-[1.75rem] p-6 card-hover" data-aos="fade-up" data-aos-delay="100">
+          <div class="w-14 h-14 rounded-2xl bg-pink-300/10 text-pink-300 grid place-items-center text-2xl mb-5"><i class="bi bi-brush"></i></div>
+          <h3 class="text-xl font-bold">UI/UX Design</h3>
+          <p class="mt-3 text-slate-300 leading-7">Elegant interface design systems with smooth user journeys, premium visuals, and interaction polish.</p>
+        </div>
+
+        <div class="glass rounded-[1.75rem] p-6 card-hover" data-aos="fade-up" data-aos-delay="200">
+          <div class="w-14 h-14 rounded-2xl bg-sky-300/10 text-sky-300 grid place-items-center text-2xl mb-5"><i class="bi bi-shield-check"></i></div>
+          <h3 class="text-xl font-bold">Maintenance & Support</h3>
+          <p class="mt-3 text-slate-300 leading-7">Security patches, bug fixes, enhancements, monitoring, and long-term support for business continuity.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="py-20">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-10 items-center">
+        <div data-aos="fade-right">
+          <p class="text-teal-300 font-semibold tracking-[0.2em] uppercase text-xs">About Us</p>
+          <h2 class="section-title mt-3">ThreeA LLC creates digital products that feel modern, strategic, and trusted</h2>
+          <p class="mt-6 text-slate-300 leading-8">Based in Louisville, Kentucky, ThreeA LLC delivers software development services for businesses that want a polished online presence and reliable technology solutions. Our focus is to combine business clarity, technical quality, and high-end user experience into every project we build.</p>
+
+          <div class="mt-8 grid gap-4">
+            <div class="flex items-start gap-4 glass rounded-2xl p-4">
+              <div class="feature-dot mt-2"></div>
+              <div>
+                <h4 class="font-bold">Business-first development</h4>
+                <p class="text-slate-300 text-sm mt-1">We build around outcomes, not just visuals—performance, trust, conversion, and scalability matter.</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-4 glass rounded-2xl p-4">
+              <div class="feature-dot mt-2"></div>
+              <div>
+                <h4 class="font-bold">Premium digital presentation</h4>
+                <p class="text-slate-300 text-sm mt-1">Your website should look as credible and refined as the business behind it.</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-4 glass rounded-2xl p-4">
+              <div class="feature-dot mt-2"></div>
+              <div>
+                <h4 class="font-bold">Long-term technical partnership</h4>
+                <p class="text-slate-300 text-sm mt-1">From launch to maintenance, we support growth with practical engineering and modern standards.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div data-aos="fade-left" class="grid md:grid-cols-2 gap-5">
+          <div class="glass rounded-[1.75rem] p-6 card-hover">
+            <p class="text-slate-400 text-sm">Headquarters</p>
+            <h3 class="mt-3 text-xl font-bold">Louisville, Kentucky</h3>
+            <p class="mt-3 text-slate-300 leading-7 text-sm">2423 Boulevard Napoleon<br>Louisville, KY 40205<br>United States</p>
+          </div>
+          <div class="glass rounded-[1.75rem] p-6 card-hover">
+            <p class="text-slate-400 text-sm">Contact Email</p>
+            <h3 class="mt-3 text-xl font-bold break-all">contact@threeaconsulting.com</h3>
+            <p class="mt-3 text-slate-300 leading-7 text-sm">Professional communication for project inquiries, partnerships, and support.</p>
+          </div>
+          <div class="glass rounded-[1.75rem] p-6 card-hover">
+            <p class="text-slate-400 text-sm">Phone</p>
+            <h3 class="mt-3 text-xl font-bold">812-618-2969</h3>
+            <p class="mt-3 text-slate-300 leading-7 text-sm">Reach out to discuss your software needs, website plans, or digital transformation goals.</p>
+          </div>
+          <div class="glass rounded-[1.75rem] p-6 card-hover bg-gradient-to-br from-teal-300/10 to-violet-400/10">
+            <p class="text-slate-400 text-sm">Core Focus</p>
+            <h3 class="mt-3 text-xl font-bold">Reliable business technology</h3>
+            <p class="mt-3 text-slate-300 leading-7 text-sm">Web platforms, customer portals, internal dashboards, custom integrations, and premium UX.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolio -->
+  <section id="portfolio" class="py-20 bg-white/[0.02]">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-12">
+        <div>
+          <p class="text-teal-300 font-semibold tracking-[0.2em] uppercase text-xs">Portfolio</p>
+          <h2 class="section-title mt-3">Selected product experiences and business interfaces</h2>
+        </div>
+        <p class="max-w-2xl text-slate-300 leading-8">This section is designed to present realistic business work samples. You can replace the demo visuals and descriptions with real client projects later.</p>
+      </div>
+
+      <div class="grid lg:grid-cols-3 gap-6">
+        <article class="portfolio-card glass rounded-[1.75rem] overflow-hidden card-hover" data-aos="fade-up">
+          <div class="overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=1200&q=80" alt="Enterprise dashboard" class="w-full h-64 object-cover">
+          </div>
+          <div class="p-6">
+            <div class="flex items-center justify-between gap-3">
+              <h3 class="text-xl font-bold">Enterprise KPI Dashboard</h3>
+              <span class="text-xs px-3 py-1 rounded-full bg-cyan-300/10 text-cyan-300 border border-cyan-300/20">Analytics</span>
+            </div>
+            <p class="mt-3 text-slate-300 leading-7 text-sm">Executive reporting interface with data visualization, team insights, and business performance summaries.</p>
+          </div>
+        </article>
+
+        <article class="portfolio-card glass rounded-[1.75rem] overflow-hidden card-hover" data-aos="fade-up" data-aos-delay="100">
+          <div class="overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?auto=format&fit=crop&w=1200&q=80" alt="Client portal platform" class="w-full h-64 object-cover">          </div>
+          <div class="p-6">
+            <div class="flex items-center justify-between gap-3">
+              <h3 class="text-xl font-bold">Client Portal Platform</h3>
+              <span class="text-xs px-3 py-1 rounded-full bg-violet-300/10 text-violet-300 border border-violet-300/20">Portal</span>
+            </div>
+            <p class="mt-3 text-slate-300 leading-7 text-sm">Secure customer workspace with profile access, documents, project tracking, and direct support tools.</p>
+          </div>
+        </article>
+
+        <article class="portfolio-card glass rounded-[1.75rem] overflow-hidden card-hover" data-aos="fade-up" data-aos-delay="200">
+          <div class="overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80" alt="SaaS website" class="w-full h-64 object-cover">
+          </div>
+          <div class="p-6">
+            <div class="flex items-center justify-between gap-3">
+              <h3 class="text-xl font-bold">SaaS Marketing Website</h3>
+              <span class="text-xs px-3 py-1 rounded-full bg-emerald-300/10 text-emerald-300 border border-emerald-300/20">Growth</span>
+            </div>
+            <p class="mt-3 text-slate-300 leading-7 text-sm">High-conversion landing architecture with fast-loading sections, clear CTAs, and premium brand styling.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team -->
+  <section id="team" class="py-20">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-14">
+        <p class="text-teal-300 font-semibold tracking-[0.2em] uppercase text-xs">Team Members</p>
+        <h2 class="section-title mt-3">Built by a skilled and collaborative software team</h2>
+        <p class="mt-5 text-slate-300 leading-8">These are sample team cards you can keep, edit, or replace with your real employee details and profile photos.</p>
+      </div>
+
+      <div class="swiper teamSwiper">
+        <div class="swiper-wrapper pb-14">
+          <div class="swiper-slide">
+            <div class="glass rounded-[1.75rem] p-6 card-hover h-full">
+              <div class="team-avatar overflow-hidden">
+                <img src="dev1.png" class="w-full h-full object-cover rounded-xl">
+              </div>
+              <h3 class="text-xl font-bold mt-5">Josh Guarcia</h3>
+              <p class="text-teal-300 text-sm mt-1">Chief Executive Officer</p>
+              <p class="mt-4 text-slate-300 leading-7 text-sm">Leads company strategy, client relationships, and long-term product direction.</p>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="glass rounded-[1.75rem] p-6 card-hover h-full">
+              <div class="team-avatar overflow-hidden">
+                <img src="dev2.png" class="w-full h-full object-cover rounded-xl">
+              </div>
+              <h3 class="text-xl font-bold mt-5">Sophia Martinez</h3>
+              <p class="text-violet-300 text-sm mt-1">Lead UI/UX Designer</p>
+              <p class="mt-4 text-slate-300 leading-7 text-sm">Creates sleek, conversion-focused interfaces with strong visual systems.</p>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="glass rounded-[1.75rem] p-6 card-hover h-full">
+              <div class="team-avatar overflow-hidden">
+                <img src="dev3.png" class="w-full h-full object-cover rounded-xl">
+              </div>
+              <h3 class="text-xl font-bold mt-5">Daniel Johnson</h3>
+              <p class="text-cyan-300 text-sm mt-1">Senior Full-Stack Engineer</p>
+              <p class="mt-4 text-slate-300 leading-7 text-sm">Builds scalable web systems, integrations, APIs, and application architecture.</p>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="glass rounded-[1.75rem] p-6 card-hover h-full">
+              <div class="team-avatar overflow-hidden">
+                <img src="dev4.png" class="w-full h-full object-cover rounded-xl">
+              </div>
+              <h3 class="text-xl font-bold mt-5">Emma Carter</h3>
+              <p class="text-emerald-300 text-sm mt-1">Project Delivery Manager</p>
+              <p class="mt-4 text-slate-300 leading-7 text-sm">Coordinates timelines, stakeholder communication, and quality across launches.</p>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Auth Section Preview -->
+  <section class="py-20 bg-white/[0.02]">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-6">
+        <div class="glass rounded-[2rem] p-8" data-aos="fade-up">
+          <p class="text-teal-300 font-semibold tracking-[0.2em] uppercase text-xs">Login Page</p>
+          <h3 class="text-3xl font-black mt-3">Secure access for clients and teams</h3>
+          <p class="mt-4 text-slate-300 leading-8">This demo includes functional modal-based login and signup interfaces for a realistic business website experience.</p>
+          <button onclick="openModal('loginModal')" class="mt-8 px-6 py-3 rounded-2xl bg-white text-slate-950 font-bold hover:scale-[1.02] transition">Open Login</button>
+        </div>
+        <div class="glass rounded-[2rem] p-8" data-aos="fade-up" data-aos-delay="100">
+          <p class="text-violet-300 font-semibold tracking-[0.2em] uppercase text-xs">Signup Page</p>
+          <h3 class="text-3xl font-black mt-3">Create an account in a polished interface</h3>
+          <p class="mt-4 text-slate-300 leading-8">Use this section to represent onboarding for clients, team members, or service subscribers with a premium visual feel.</p>
+          <button onclick="openModal('signupModal')" class="mt-8 px-6 py-3 rounded-2xl bg-gradient-to-r from-teal-300 to-violet-400 text-slate-950 font-bold hover:scale-[1.02] transition">Open Sign Up</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="py-20">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-8 items-start">
+        <div data-aos="fade-right">
+          <p class="text-teal-300 font-semibold tracking-[0.2em] uppercase text-xs">Contact Us</p>
+          <h2 class="section-title mt-3">Let’s build your next software product</h2>
+          <p class="mt-6 text-slate-300 leading-8">Have an idea, client request, or digital transformation goal? Reach out to ThreeA LLC and start a professional conversation about your project.</p>
+
+          <div class="mt-8 grid gap-4">
+            <div class="glass rounded-2xl p-5 flex gap-4 items-start">
+              <div class="w-12 h-12 rounded-2xl bg-cyan-300/10 text-cyan-300 grid place-items-center text-xl"><i class="bi bi-geo-alt"></i></div>
+              <div>
+                <h4 class="font-bold">Office Address</h4>
+                <p class="text-slate-300 text-sm mt-1">2423 Boulevard Napoleon, Louisville, KY 40205, United States</p>
+              </div>
+            </div>
+            <div class="glass rounded-2xl p-5 flex gap-4 items-start">
+              <div class="w-12 h-12 rounded-2xl bg-violet-300/10 text-violet-300 grid place-items-center text-xl"><i class="bi bi-envelope"></i></div>
+              <div>
+                <h4 class="font-bold">Email</h4>
+                <p class="text-slate-300 text-sm mt-1">contact@threeaconsulting.com</p>
+              </div>
+            </div>
+            <div class="glass rounded-2xl p-5 flex gap-4 items-start">
+              <div class="w-12 h-12 rounded-2xl bg-emerald-300/10 text-emerald-300 grid place-items-center text-xl"><i class="bi bi-telephone"></i></div>
+              <div>
+                <h4 class="font-bold">Phone</h4>
+                <p class="text-slate-300 text-sm mt-1">812-618-2969</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="glass rounded-[2rem] p-6 md:p-8" data-aos="fade-left">
+          <h3 class="text-2xl font-bold">Send a message</h3>
+          <form class="mt-6 grid gap-4" onsubmit="event.preventDefault(); showToast('Thanks! Your message has been captured in this demo form.');">
+            <div class="grid md:grid-cols-2 gap-4">
+              <input type="text" placeholder="Your name" class="w-full rounded-2xl bg-white/5 border border-white/10 px-4 py-3 text-white outline-none focus:border-teal-300">
+              <input type="email" placeholder="Your email" class="w-full rounded-2xl bg-white/5 border border-white/10 px-4 py-3 text-white outline-none focus:border-teal-300">
+            </div>
+            <input type="text" placeholder="Subject" class="w-full rounded-2xl bg-white/5 border border-white/10 px-4 py-3 text-white outline-none focus:border-teal-300">
+            <textarea rows="6" placeholder="Tell us about your project" class="w-full rounded-2xl bg-white/5 border border-white/10 px-4 py-3 text-white outline-none focus:border-teal-300"></textarea>
+            <button class="px-6 py-3 rounded-2xl bg-gradient-to-r from-teal-300 to-violet-400 text-slate-950 font-bold shadow-lg hover:scale-[1.01] transition">Submit Inquiry</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="border-t border-white/10 py-10">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 grid lg:grid-cols-4 gap-8">
+      <div>
+        <div class="flex items-center gap-3">
+          <img src="logo.png" class="logo-img">
+          <div>
+            <p class="font-extrabold tracking-tight text-lg">ThreeA LLC</p>
+            <p class="text-xs text-slate-400">Software Consulting Company</p>
+          </div>
+        </div>
+        <p class="mt-4 text-slate-400 text-sm leading-7">A premium business website concept designed to look realistic, professional, modern, and highly credible.</p>
+      </div>
+      <div>
+        <h4 class="font-bold mb-4">Pages</h4>
+        <div class="grid gap-3 text-sm text-slate-400">
+          <a href="#dashboard">Dashboard</a>
+          <a href="#services">Services</a>
+          <a href="#about">About</a>
+          <a href="#portfolio">Portfolio</a>
+        </div>
+      </div>
+      <div>
+        <h4 class="font-bold mb-4">Company</h4>
+        <div class="grid gap-3 text-sm text-slate-400">
+          <a href="#team">Team Members</a>
+          <a href="#contact">Contact Us</a>
+          <button onclick="openModal('loginModal')" class="text-left">Login</button>
+          <button onclick="openModal('signupModal')" class="text-left">Sign Up</button>
+        </div>
+      </div>
+      <div>
+        <h4 class="font-bold mb-4">Contact</h4>
+        <div class="grid gap-3 text-sm text-slate-400">
+          <span>2423 Boulevard Napoleon</span>
+          <span>Louisville, KY 40205</span>
+          <span>contact@threeaconsulting.com</span>
+          <span>812-618-2969</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Login Modal -->
+  <div id="loginModal" class="modal fixed inset-0 z-[70] bg-slate-950/70 backdrop-blur-sm p-4 flex items-center justify-center">
+    <div class="glass rounded-[2rem] w-full max-w-md p-7 relative">
+      <button onclick="closeModal('loginModal')" class="absolute top-4 right-4 text-slate-300 text-xl"><i class="bi bi-x-lg"></i></button>
+      <p class="text-teal-300 font-semibold tracking-[0.2em] uppercase text-xs">Login</p>
+      <h3 class="text-3xl font-black mt-3">Welcome back</h3>
+      <p class="mt-2 text-slate-300 text-sm">Access your dashboard, projects, and business tools.</p>
+      <form class="mt-6 grid gap-4" onsubmit="event.preventDefault(); showToast('Not a registered user'); closeModal('loginModal');">
+        <input type="email" placeholder="Email address" class="w-full rounded-2xl bg-white/5 border border-white/10 px-4 py-3 text-white outline-none focus:border-teal-300">
+        <input type="password" placeholder="Password" class="w-full rounded-2xl bg-white/5 border border-white/10 px-4 py-3 text-white outline-none focus:border-teal-300">
+        <button class="px-6 py-3 rounded-2xl bg-white text-slate-950 font-bold">Login</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Signup Modal -->
+  <div id="signupModal" class="modal fixed inset-0 z-[70] bg-slate-950/70 backdrop-blur-sm p-4 flex items-center justify-center">
+    <div class="glass rounded-[2rem] w-full max-w-md p-7 relative">
+      <button onclick="closeModal('signupModal')" class="absolute top-4 right-4 text-slate-300 text-xl"><i class="bi bi-x-lg"></i></button>
+      <p class="text-violet-300 font-semibold tracking-[0.2em] uppercase text-xs">Sign Up</p>
+      <h3 class="text-3xl font-black mt-3">Create your account</h3>
+      <p class="mt-2 text-slate-300 text-sm">Join the platform and manage your business presence with confidence.</p>
+      <form class="mt-6 grid gap-4" onsubmit="event.preventDefault(); showToast('Wating for the Admin Approval...'); closeModal('signupModal');">
+        <input type="text" placeholder="Full name" class="w-full rounded-2xl bg-white/5 border border-white/10 px-4 py-3 text-white outline-none focus:border-violet-300">
+        <input type="email" placeholder="Email address" class="w-full rounded-2xl bg-white/5 border border-white/10 px-4 py-3 text-white outline-none focus:border-violet-300">
+        <input type="password" placeholder="Create password" class="w-full rounded-2xl bg-white/5 border border-white/10 px-4 py-3 text-white outline-none focus:border-violet-300">
+        <button class="px-6 py-3 rounded-2xl bg-gradient-to-r from-teal-300 to-violet-400 text-slate-950 font-bold">Sign Up</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div id="toast" class="fixed bottom-5 right-5 z-[80] translate-y-20 opacity-0 transition duration-300 bg-white text-slate-950 px-5 py-3 rounded-2xl shadow-2xl font-semibold">
+    Action completed.
+  </div>
+
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+
+  <script>
+
+  particlesJS("particles-js",{
+
+  particles:{
+
+  number:{value:80},
+
+  color:{value:["#5eead4","#7c3aed","#60a5fa"]},
+
+  shape:{type:"circle"},
+
+  opacity:{value:0.4},
+
+  size:{value:3},
+
+  line_linked:{
+  enable:true,
+  distance:150,
+  color:"#5eead4",
+  opacity:0.2
+  },
+
+  move:{enable:true,speed:1.5}
+
+  },
+
+  interactivity:{
+  events:{
+  onhover:{enable:true,mode:"grab"},
+  onclick:{enable:true,mode:"push"}
+  }
+  }
+
+  });
+
+  </script>
+  <script>
+    AOS.init({ duration: 900, once: true, offset: 60 });
+
+    // Mobile menu
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    if (menuBtn) {
+      menuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+    }
+
+    // GSAP hero animations
+    gsap.from('header .glass', { y: -30, opacity: 0, duration: 0.9, ease: 'power3.out' });
+    gsap.from('#home h1, #home p, #home .stat-card, #home a', {
+      y: 30,
+      opacity: 0,
+      duration: 0.9,
+      stagger: 0.12,
+      delay: 0.2,
+      ease: 'power3.out'
+    });
+
+    // Counter animation
+    const counters = document.querySelectorAll('.counter');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const el = entry.target;
+          const target = +el.getAttribute('data-target');
+          let current = 0;
+          const step = Math.max(1, Math.ceil(target / 60));
+          const timer = setInterval(() => {
+            current += step;
+            if (current >= target) {
+              current = target;
+              clearInterval(timer);
+            }
+            el.textContent = current;
+          }, 26);
+          observer.unobserve(el);
+        }
+      });
+    }, { threshold: 0.6 });
+    counters.forEach(counter => observer.observe(counter));
+
+    // Swiper
+    new Swiper('.teamSwiper', {
+      slidesPerView: 1.1,
+      spaceBetween: 20,
+      pagination: { el: '.swiper-pagination', clickable: true },
+      breakpoints: {
+        640: { slidesPerView: 2.1 },
+        1024: { slidesPerView: 3.1 },
+      }
+    });
+
+    // Active nav link on scroll
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-link');
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop - 140;
+        const sectionHeight = section.offsetHeight;
+        if (pageYOffset >= sectionTop && pageYOffset < sectionTop + sectionHeight) {
+          current = section.getAttribute('id');
+        }
+      });
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === `#${current}`) {
+          link.classList.add('active');
+        }
+      });
+    });
+
+    // Modal handlers
+    function openModal(id) {
+      document.getElementById(id).classList.add('show');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeModal(id) {
+      document.getElementById(id).classList.remove('show');
+      document.body.style.overflow = '';
+    }
+    document.querySelectorAll('.modal').forEach(modal => {
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+          modal.classList.remove('show');
+          document.body.style.overflow = '';
+        }
+      });
+    });
+
+    // Toast
+    function showToast(message) {
+      const toast = document.getElementById('toast');
+      toast.textContent = message;
+      toast.classList.remove('translate-y-20', 'opacity-0');
+      setTimeout(() => {
+        toast.classList.add('translate-y-20', 'opacity-0');
+      }, 2500);
+    }
+  </script>
+</body>
+</html>
